@@ -13,12 +13,11 @@ import java.io.IOException;
 
 
 public class MainAppTTT extends Application {
-    private final int height = 600;
-    private final int width = height;
-    private final int rect = height / 3;
+    private final int boardSize = 600;
+    private final int rect = boardSize / 3;
 //    private int[][] board = new int[2][2];
     private char[][] board = {{'x','o','x'},{'x','x','x'},{'o','x','o'}};
-    Canvas canvas = new Canvas(width, height);
+    Canvas canvas = new Canvas(boardSize, boardSize);
     GraphicsContext gc = canvas.getGraphicsContext2D();
     private boolean playerTurn = true;
     @Override
@@ -48,10 +47,10 @@ public class MainAppTTT extends Application {
     }
     private void drawBoard() {
         gc.setFill(Color.BLACK);
-        gc.fillRect(0, 0, width, height);
+        gc.fillRect(0, 0, boardSize, boardSize);
         gc.setStroke(Color.WHITESMOKE);
-        for (int i = 0; i < width; i += rect) {
-            for (int j = 0; j < height; j += rect) {
+        for (int i = 0; i < boardSize; i += rect) {
+            for (int j = 0; j < boardSize; j += rect) {
                 gc.strokeRect(i, j, rect, rect);
                 if (board[j/rect][i/rect] == 'x') {
                     gc.strokeLine(i, j, i+rect, j+rect);
