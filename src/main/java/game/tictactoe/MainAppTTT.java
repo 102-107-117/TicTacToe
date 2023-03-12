@@ -10,6 +10,7 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Arrays;
 
 
 public class MainAppTTT extends Application {
@@ -65,11 +66,7 @@ public class MainAppTTT extends Application {
         return board[y][x] == ' ';
     }
     private void resetBoard() {
-        for (int i = 0; i < board.length; i++) {
-            for (int j = 0; j < board[0].length; j++) {
-                board[j][i] = ' ';
-            }
-        }
+        Arrays.stream(board).forEach(e -> Arrays.fill(e, ' '));
     }
 
     public static void main(String[] args) {
